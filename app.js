@@ -27,17 +27,21 @@ db.on('connected', () => console.log('MongoDB connected'));
 db.on('disconnected', () => console.log('MongoDB disconnected!'));
 app.use('/', appRouter);
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
-});
+// app.use(function (req, res, next) {
+//   next(createError(404));
+// });
 // error handler
-app.use(function (err, req, res) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-  req.accepts('html') ? res.render('notFound') : req.accepts('json') ? res.send({ error: 'Not found' }) : res.type('txt').send('Not found');
+// app.use(function (res, req) {
+// set locals, only providing error in development
+// res.locals.message = err.message;
+// res.locals.error = req.app.get('env') === 'development' ? err : {};
+// render the error page
+// res.status(err.status || 500);
+//   res.render('error');
+//   req.accepts('html') ? res.render('notFound') : req.accepts('json') ? res.send({ error: 'Not found' }) : res.type('txt').send('Not found');
+// });
+app.use((req, res) => {
+  res.status(404);
+  req.accepts('html') ? res.render('error') : req.accepts('json') ? res.send({ error: 'Not found' }) : res.type('txt').send('Not found');
 });
 module.exports = app;

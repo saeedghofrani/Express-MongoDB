@@ -4,23 +4,33 @@ const UserSchema = new Schema({
     username: {
         type: String,
         unique: true,
-        required: true
+        required: [true, 'username required'],
+        minlength: [2, 'invalid input'],
     },
     firstName: {
         type: String,
-        required: true
+        required: [true, 'firstName required'],
+        minlength: [2, 'invalid input'],
+        maxlength: [30, 'invalid input'],
     },
     lastName: {
         type: String,
-        required: true
+        required: [true, 'lastName required'],
+        minlength: [2, 'invalid input'],
+        maxlength: [30, 'invalid input'],
     },
     password: {
-        type: Number,
-        required: true
+        type: String,
+        required: [true, 'password required'],
+        minlength: [8, 'invalid input'],
     },
-    male: {
-        type: Boolean, 
-        default: 'other'
+    gender: {
+        type: String,
+        enum: {
+            values: ['male', 'female', 'none'],
+            message: '{VALUE} is not supported'
+        },
+        default: 'none',
     }
 });
-module.export =  mongoose.model('Users', UserSchema);
+module.export = mongoose.model('Users', UserSchema);
