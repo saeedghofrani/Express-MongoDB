@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./common/header.ejs', {Document:'dashbord'}); -%>
+        <link rel="stylesheet" href="/style/dashbord.css">
+</head>
+
+<body class="bg-light p-4 m-0">
+    <div class="container ms-0 mr-0 m-0">
+        <div class="main-body">
+            <div class="row gutters-sm h-100">
+                <div class="col-md-4 mb-3 h-100">
+                    <div class="h-100">
+                        <div class="card-body h-100">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
+                                    class="rounded-circle" width="150">
+                                <div class="mt-3">
+                                    <h4>
+                                        <%= data.username %>
+                                    </h4>
+                                    <p class="text-secondary mb-1">Full Stack Developer</p>
+                                    <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                                    <button class="btn btn-primary">Follow</button>
+                                    <button id="deletAcount" class="btn btn-outline-danger">delete acount</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row ">
+                                <div class="col-sm-3 row justify-content-center align-items-center text-center">
+                                    <h6 class="mb-0">username</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input id="username" type="text" value="<%= data.username %>" class="form-control"
+                                        required disabled readonly>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row ">
+                                <div class="col-sm-3 row justify-content-center align-items-center text-center">
+                                    <h6 class="mb-0">password</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input id="password" type="text" value="<%= data.password %>" class="form-control"
+                                        required disabled readonly>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3 row justify-content-center align-items-center text-center">
+                                    <h6 class="mb-0">firstName</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input id="firstName" type="text" value="<%= data.firstName %>" class="form-control"
+                                        required disabled readonly>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3 row justify-content-center align-items-center text-center">
+                                    <h6 class="mb-0">lastName</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input id="lastName" type="text" value="<%= data.lastName %>" class="form-control"
+                                        required disabled readonly>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3 row justify-content-center align-items-center text-center">
+                                    <h6 class="mb-0">gender</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input id="gender" type="text" value="<%= data.gender %>" class="form-control"
+                                        required disabled readonly>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3 row justify-content-center align-items-center text-center">
+                                    <h6 class="mb-0">Phone Number</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" value="555-4857-689" class="form-control" required disabled
+                                        readonly>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <btn class="btn btn-primary" id="btn_edit">Edit</btn>
+                                    <btn class="btn btn-success" id="btn_done">Done</btn>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h2 id="done" class="text-success text-center">DONE</h2>
+    </div>
+    </div>
+    <script src="/script/dashboard.js"></script>
+</body>
+
+</html>

@@ -14,15 +14,15 @@ const passwordValidator = (request) => {
     return '';
 };
 const firstnamedValidator = (request) => {
-    const { firstname } = request.body;
-    if (!firstname || validator.isEmpty(firstname) || firstname.length < 2 || firstname.length > 30) {
+    const { firstName } = request.body;
+    if (!firstName || validator.isEmpty(firstName) || firstName.length < 2 || firstName.length > 30) {
         return 'firstname should be Atleast 2 character and max 30 character';
     }
     return '';
 };
 const lastnameValidator = (request) => {
-    const { lastname } = request.body;
-    if (!lastname || validator.isEmpty(lastname) || lastname.length < 2 || lastname.length > 30) {
+    const { lastName } = request.body;
+    if (!lastName || validator.isEmpty(lastName) || lastName.length < 2 || lastName.length > 30) {
         return 'lastname should be Atleast 2 character and max 30 character';
     }
     return '';
