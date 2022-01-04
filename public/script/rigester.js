@@ -1,10 +1,15 @@
 $(document).ready(function () {
+    let usernameValid = false;
+    let passwordValid = false;
+    let firstnameValid = false;
+    let lastnameValid = false;
     $('#username').keyup(function (e) {
         e.preventDefault();
         if (!/^[A-Za-z0-9_\.]+$/.test($('#username').val()) || $('#username').val().length < 2) {
             $('#usernameError').text('username shoule be Atleast: 2 character number and letter NO SPACE');
         }
         else {
+            usernameValid = true;
             $('#usernameError').text('');
         }
     });
@@ -14,6 +19,7 @@ $(document).ready(function () {
             $('#passwordError').text('password shoule be Atleast: 8 character number and letter(uppercase, lowercase) and special character');
         }
         else {
+            passwordValid = true;
             $('#passwordError').text('');
         }
     });
@@ -23,6 +29,7 @@ $(document).ready(function () {
             $('#firstnameError').text('firstname shoule be Atleast: 2 character and At-most 30character');
         }
         else {
+            firstnameValid = true;
             $('#firstnameError').text('');
         }
     });
@@ -32,6 +39,7 @@ $(document).ready(function () {
             $('#lastnameError').text('lastname shoule be Atleast: 2 character and At-most 30character');
         }
         else {
+            lastnameValid = true;
             $('#lastnameError').text('');
         }
     });
