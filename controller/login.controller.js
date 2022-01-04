@@ -5,13 +5,17 @@ const loginPage = (_request, response) => {
 };
 const loginRequest = async (request, response) => {
     const { username, password } = request.body;
-    const user = await Users.find({ username: username, password: password });
-    if (user.length > 0) {
-        return response.redirect(url.format({
-            pathname: "/dashboard",
-            query: { "a": 1, "b": 2, data: JSON.stringify(user[0]._id) }
-        }));
+    try {
+        const user = await Users.find({ username: username, password: password });
+        if (user.length > 0) {
+            return response.redirect(url.format({
+                pathname: "/dashboard",
+                query: { "a": 1, "b": 2, data: JSON.stringify(user[0]._id) }
+            }));
+        }
+        return response.render('login', { Error: 'username or password is incorrect' });
+    } catch (error) {
+        console.log(error);
     }
-    return response.render('login', { Error: 'username or password is incorrect' });
 };
 module.exports = { loginPage, loginRequest };
