@@ -1,6 +1,5 @@
 document.getElementById('done').style['display'] = 'none';
 document.getElementById('idHiden').style['display'] = 'none';
-document.getElementsByTagName("h5").style['display'] = 'none';
 $(document).ready(function () {
     $('#btn_done').click(function (e) {
         e.preventDefault();

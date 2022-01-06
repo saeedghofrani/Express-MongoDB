@@ -1,5 +1,4 @@
 "use strict";
-const createError = require('http-errors');
 const express = require('express');
 //Import the mongoose module
 const mongoose = require('mongoose');
