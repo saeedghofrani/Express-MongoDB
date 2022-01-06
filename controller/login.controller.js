@@ -15,7 +15,7 @@ const loginRequest = async (request, response) => {
         }
         return response.render('login', { Error: 'username or password is incorrect' });
     } catch (error) {
-        console.log(error);
+        console.log('login request error: (Users.find)' + error);
     }
 };
 module.exports = { loginPage, loginRequest };
