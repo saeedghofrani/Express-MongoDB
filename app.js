@@ -41,7 +41,6 @@ app.use('/', appRouter);
 //   req.accepts('html') ? res.render('notFound') : req.accepts('json') ? res.send({ error: 'Not found' }) : res.type('txt').send('Not found');
 // });
 app.use((req, res) => {
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
   res.status(404);
   req.accepts('html') ? res.render('error') : req.accepts('json') ? res.send({ error: 'Not found' }) : res.type('txt').send('Not found');
 });
